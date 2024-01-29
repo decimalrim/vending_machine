@@ -201,7 +201,7 @@ public abstract class Seller {
 		}
 	}
 		
-	}
+}
 
 
 }

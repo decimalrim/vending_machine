@@ -45,7 +45,7 @@ public class Customer {
 	}
 	
 	/**
-	 * 환불 받는디
+	 * 환불 받는다
 	 * @param money 환불 받은 금액
 	 */
 	public void addMoney(int money) {
@@ -89,7 +89,6 @@ public class Customer {
 		// 없다면 비어있는 인덱스를 찾아서 새롭게 할당해준다
 		Product product = this.getProductByName(name);
 	
-			
 			if (product != null) {
 				int quantity = product.getQuantity();
 				quantity = productCount;

@@ -56,15 +56,19 @@ public class Mart {
 		// --> VendingMachine
 		// --> RefundableVendingMachine
 		// IS A
-		// VendingMachine is a Seller
-		// RefundableVendingMachine is a Seller
-		// Seller drinkVendingMachine = new VendingMachine();
-		// Seller drinkVendingMachine = new RefundableVendingMachine();
+		// VendingMachine is a Sellable
+		// RefundableVendingMachine is a Sellable
+		// Sellable drinkVendingMachine = new VendingMachine();
+		// Sellable drinkVendingMachine = new RefundableVendingMachine();
 		
+		
+		//  Sellable (인터페이스)
+		// --> (구현) VendingMachine
+		// --> (구현) RefundVendingMachine
 		
 	// 객체지향(=캡슐화: 기능1개에서 여러 처리를 하는 특징) 방식으로 개발 (행동기준) - 이게 더 나은 방식
 		
-		Seller drinkMachine = new VendingMachine();
+		Sellable drinkMachine = new VendingMachine();
 		//아래 코드는 vendingMachine 생성자에서 대체함
 
 		
@@ -83,7 +87,7 @@ public class Mart {
 		
 		
 		
-		Seller snackMachine = new RefundableVendingMachine(400);
+		Sellable snackMachine = new RefundableVendingMachine(400);
 		snackMachine.insertMoney(musk, "제로펩시");
 		snackMachine.pressButton(musk, "제로펩시", 50);
 		
