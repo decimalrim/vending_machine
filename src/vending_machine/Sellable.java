@@ -1,4 +1,7 @@
 package vending_machine;
+
+import java.util.List;
+
 /**
  * <I extends Product> ==> Product 클래스를 상속한 타입만 가능 X
  * 					   ==> Product 클래스를 상속한 타입 혹은
@@ -21,7 +24,7 @@ public interface Sellable<I> { // <I>라고 하는 제네릭을 쓰겠다.
 	public static final int PRODUCT_COUNT = 1;
 	public static final String MACHINE_NAME = "자판기";
 	
-	public I[] getProductArray();
+	public List<I> getProductArray();
 
 	public int getMoney();
 
@@ -57,7 +60,7 @@ public interface Sellable<I> { // <I>라고 하는 제네릭을 쓰겠다.
 //	 * @param customer    환불 받을 고객
 //	 * @param refundMoney 환불 받을 금액
 //	 */
-//	abstract void refund(Customer customer, int refundMoney);
+//	public void refund(Customer customer, int refundMoney);
 
 	public void printProducts();
 

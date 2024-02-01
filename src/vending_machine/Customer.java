@@ -1,5 +1,8 @@
 package vending_machine;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Customer {
 	
 	
@@ -12,8 +15,8 @@ public class Customer {
 	/**
 	 * 고객이 가진 상품의 수량
 	 */
-//	int stock;
-	private Product[] productArray;
+	int stock;
+	private List<Product> productArray;
 	
 	// getter 만들기
 	
@@ -21,7 +24,7 @@ public class Customer {
 		return this.wallet;
 	}
 	
-	public Product[] getProduct() {
+	public List<Product> getProductArray() {
 		return this.productArray;
 	}
 	
@@ -30,8 +33,8 @@ public class Customer {
 	public Customer(int wallet) {
 		// 생성자가 만든 인스턴스의 this//
 		this.wallet = wallet; //이것들은 모두 파라미터이다 자기가 자신에게 같은 값 할당
-//		this.stock = stock;
-		this.productArray = new Product[3];	
+		this.stock = stock;
+		this.productArray = new ArrayList<>();	
 		}
 	
 	/**
@@ -91,19 +94,18 @@ public class Customer {
 	
 			if (product != null) {
 				int quantity = product.getQuantity();
-				quantity = productCount;
+				quantity += productCount;
 				product.setQuantity(quantity);
 			} else {
-				int nullIndex = getNullIndex();
-				if (nullIndex >= 0) {
-				this.productArray[nullIndex] = new Product();
-				this.productArray[nullIndex].setName(name);
-				this.productArray[nullIndex].setPrice(price);
-				this.productArray[nullIndex].setQuantity(productCount);
+				Product buyproduct = new Product();
+				buyproduct.setName(name);
+				buyproduct.setPrice(price);
+				buyproduct.setQuantity(productCount);
+				this.productArray.add(buyproduct);
 				
 			 }
 		 }
-	 }
+	 
  
 	
 	// 고객만 접근할 수 있게  private
@@ -117,13 +119,7 @@ public class Customer {
 		return null;
 	}
 	
-	private int getNullIndex() {
-		for (int i = 0; i < this.productArray.length; i++) {
-			if (this.productArray[i] == null) {
-				return i;
-			}
-		} return -1;
-	}
+
 			
 		public void printProducts() {
 			System.out.println("고객의 잔액: " + this.wallet);

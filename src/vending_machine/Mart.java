@@ -1,5 +1,7 @@
 package vending_machine;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class Mart {
 	
@@ -38,7 +40,7 @@ public class Mart {
 //		printProduct(tp);
 
 		
-//		printTemperatureProduct(p); // is a 관계가 형성이 안되기 때문에 -> 다형성
+//		printTemperatureProduct(tp); // is a 관계가 형성이 안되기 때문에 -> 다형성
 		
 		
 		Product p = new Product();
@@ -67,26 +69,29 @@ public class Mart {
 		// --> (구현) RefundVendingMachine
 		
 		
-		Product[] productArray = new Product[3];
+		List<Product> productList = new ArrayList<>();
 		
-		productArray[0] = new Product();
-		productArray[0].setName("제로콜라");
-		productArray[0].setPrice(1600);
-		productArray[0].setQuantity(50);
-			
-		productArray[1] = new Product();
-		productArray[1].setName("제로펩시");
-		productArray[1].setPrice(1500);
-		productArray[1].setQuantity(30);
+		Product product1 = new Product();
+		product1.setName("제로콜라");
+		product1.setPrice(1600);
+		product1.setQuantity(50);
+		productList.add(product1);
 		
-		productArray[2] = new Product();
-		productArray[2].setName("제로스프라이트");
-		productArray[2].setPrice(1400);
-		productArray[2].setQuantity(20);
+		Product product2 = new Product();
+		product2.setName("제로펩시");
+		product2.setPrice(1500);
+		product2.setQuantity(30);
+		productList.add(product2);
+		
+		Product product3 = new Product();
+		product3.setName("제로스프라이트");
+		product3.setPrice(1400);
+		product3.setQuantity(20);
+		productList.add(product3);
 		
 	// 객체지향(=캡슐화: 기능1개에서 여러 처리를 하는 특징) 방식으로 개발 (행동기준) - 이게 더 나은 방식
 		
-		Sellable<Product> drinkMachine = new VendingMachine<>(100_000, productArray);
+		Sellable<Product> drinkMachine = new VendingMachine<>(100_000, productList);
 		drinkMachine.setInsertMoneyHandler(new InsertMoneyHandler<Product>() {
 
 			@Override // 익명클래스
@@ -147,7 +152,7 @@ public class Mart {
 		
 		
 		
-		Sellable<Product> snackMachine = new RefundableVendingMachine<>(400, productArray);
+		Sellable<Product> snackMachine = new RefundableVendingMachine<>(400, productList);
 		snackMachine.setInsertMoneyHandler(new InsertMoneyHandler<Product>() {
 
 			@Override // 익명클래스

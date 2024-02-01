@@ -1,5 +1,7 @@
 package vending_machine;
 
+import java.util.List;
+
 /**
  * 상속 받은 클래스가 추상 메소드가 존재하는 추상 클래스라면</br>
  * 추상 메소드를 이 클래스에서 구현을 시키거나</br>
@@ -18,25 +20,25 @@ public class VendingMachine<I> implements Sellable<I> {
 	 */
 //	int productQuantity;처음에 만든것
 	// 하지만 위처럼 뿐만 아니라 product 클래스에서 이름 가격 등 한번에 가능
-	private I[] productArray;
+	private List<I> productArray;
 	
 	/**
 	 * 돈
 	 */
 	private int money;
 	 // 생성자
-	public VendingMachine(I[] itemArray) {
+	public VendingMachine(List<I> itemArray) {
 		this(100_000, itemArray);
 	}
 	
-	public VendingMachine(int money, I[] itemArray) {
+	public VendingMachine(int money, List<I> itemArray) {
 		this.money = money;
 		this.productArray = itemArray;
 		
 }
 
 	@Override
-	public I[] getProductArray() {
+	public List<I> getProductArray() {
 		return this.productArray;
 	}
 
