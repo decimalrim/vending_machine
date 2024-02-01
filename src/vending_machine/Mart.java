@@ -155,6 +155,8 @@ public class Mart {
 		initiateInsertMoneyHandler(drinkMachine);
 		initiatePressButtonHandler(drinkMachine);
 		initiatePrintHandler(drinkMachine);
+		
+		drinkMachine.addProduct("보이차", 4000, 20);
 				
 
 		Customer musk = new Customer(200_000);// 어딘가에 있으면 파라미터가 없는 생성자는 쓸 수 없음
@@ -175,6 +177,8 @@ public class Mart {
 		initiateInsertMoneyHandler(snackMachine);
 		initiatePressButtonHandler(snackMachine);
 		initiatePrintHandler(snackMachine);
+		
+		drinkMachine.addProduct("엔쵸", 700, 10);
 		
 		
 		snackMachine.insertMoney(musk, "제로펩시");

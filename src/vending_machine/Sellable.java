@@ -36,18 +36,18 @@ public interface Sellable<I> { // <I>라고 하는 제네릭을 쓰겠다.
 	
 	public void setPrintHandler(PrintHandler<I> handler);
 
+	public void addProduct(String productName, int price, int quantity);
+	
 	/**
 	 * 돈을 넣는 기능
-	 * 
-	 * @param customer    돈을 넣은 고객
+	 * @param customer 돈을 넣은 고객
 	 * @param productName 구매할 제품의 이름 (제로콜라, 제로펩시, 제로스프라이트)
 	 */
 	public void insertMoney(Customer customer, String productName);
 
 	/**
 	 * 버튼을 누르는 기능
-	 * 
-	 * @param customer    버튼을 누른 고객
+	 * @param customer 버튼을 누른 고객
 	 * @param productName 구매할 제품의 이름 (제로콜라, 제로펩시, 제로스프라이트)
 	 */
 	public void pressButton(Customer customer, String productName);
@@ -56,7 +56,6 @@ public interface Sellable<I> { // <I>라고 하는 제네릭을 쓰겠다.
 
 //	/**
 //	 * 고객에게 환불처리 한다 상속된 클래스에서만 사용할 수 있도록 한다
-//	 * 
 //	 * @param customer    환불 받을 고객
 //	 * @param refundMoney 환불 받을 금액
 //	 */
