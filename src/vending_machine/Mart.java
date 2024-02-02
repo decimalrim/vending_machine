@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import vending_machine.util.FileUtil;
+import vending_machine.util.NIOFileUtil;
 
 public class Mart {
 	
@@ -37,7 +38,8 @@ public class Mart {
 	
 	public static List<Product> initiateProduct() {
 		
-		List<Product> productList = FileUtil.readCSVFile("C:\\Java Exam", "goods.csv");	
+//		List<Product> productList = FileUtil.readCSVFile("C:\\Java Exam", "goods.csv");	
+		List<Product> productList = NIOFileUtil.readCSVFile("goods.csv");	
 		return productList;
 	}
 	
@@ -156,7 +158,7 @@ public class Mart {
 		initiatePressButtonHandler(drinkMachine);
 		initiatePrintHandler(drinkMachine);
 		
-		drinkMachine.addProduct("보이차", 4000, 20);
+		drinkMachine.addProduct("보이차2", 4000, 20);
 				
 
 		Customer musk = new Customer(200_000);// 어딘가에 있으면 파라미터가 없는 생성자는 쓸 수 없음

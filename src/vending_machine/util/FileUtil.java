@@ -13,7 +13,7 @@ import vending_machine.Product;
 
 public class FileUtil {
 	
-	
+	// 1.8 미만 버전
 	/**
 	 * 파일을 쓴다
 	 * @param parent 파일을 쓸 경로
