@@ -11,19 +11,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import vending_machine.Product;
+import vending_machine.constants.AppendType;
 
 /**
  * Java 1.8 이상버전의 파일 유틸리티
  */
 public class NIOFileUtil {
 	
-	public static void writeFile(String parent, String filename, String description, boolean append) {
+	public static void writeFile(String parent, String filename, String description, AppendType appendType) {
 		
 		File file = new File(parent, filename);
 		if(!file.getParentFile().exists()) {
 			file.getParentFile().mkdirs();
 		}
-		if(! append) {
+		if(appendType == AppendType.OVER_WRITE) {
 		int index = 2; 
 		while (file.exists()) {
 			file = new File(file.getParent(),filename+" (" + (index++) + ").txt");
@@ -37,10 +38,11 @@ public class NIOFileUtil {
 		// 파일을 쓴다.
 		try{
 					
-			if( ! append) {
-				Files.write(file.toPath(), fileDesc, Charset.forName("UTF-8"));				
+			if( appendType == AppendType.APPEND) {
+				Files.write(file.toPath(), fileDesc, Charset.forName("UTF-8"), StandardOpenOption.APPEND);
+							
 			} else {
-				Files.write(file.toPath(), fileDesc, Charset.forName("UTF-8"), StandardOpenOption.APPEND);		
+				Files.write(file.toPath(), fileDesc, Charset.forName("UTF-8"));			
 			}
 		} catch (IOException e) {
 			System.out.println(e.getMessage());

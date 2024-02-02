@@ -2,6 +2,7 @@ package vending_machine;
 
 import java.util.List;
 
+import vending_machine.constants.AppendType;
 import vending_machine.util.FileUtil;
 import vending_machine.util.NIOFileUtil;
 
@@ -74,7 +75,7 @@ public class VendingMachine<I> implements Sellable<I> {
 	public void addProduct(String productName, int price, int quantity) {
 		String description = String.join(",", productName, price + "", quantity + "");
 //		FileUtil.writeFile("C:\\Java Exam", "goods.csv", description, true);
-		NIOFileUtil.writeFile("C:\\Java Exam", "goods.csv", description, true);
+		NIOFileUtil.writeFile("C:\\Java Exam", "goods.csv", description, AppendType.APPEND);
 	}
 	
 
