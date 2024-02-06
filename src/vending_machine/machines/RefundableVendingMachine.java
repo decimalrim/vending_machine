@@ -1,6 +1,9 @@
-package vending_machine;
+package vending_machine.machines;
 
 import java.util.List;
+
+import vending_machine.customers.Customer;
+import vending_machine.inf.Sellable;
 
 /**
  * 환불 기능이 있는 자판기
@@ -19,7 +22,7 @@ public class RefundableVendingMachine<I> extends VendingMachine<I> implements Se
 
 
 	@Override
-	protected void refund(Customer customer, int refundMoney) {
+	public void refund(Customer customer, int refundMoney) {
 			System.out.println("재고가 없네요.");
 			System.out.println(refundMoney +"원 환불 해드릴게요.");
 			

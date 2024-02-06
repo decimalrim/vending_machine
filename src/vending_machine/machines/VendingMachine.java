@@ -1,8 +1,13 @@
-package vending_machine;
+package vending_machine.machines;
 
 import java.util.List;
 
 import vending_machine.constants.AppendType;
+import vending_machine.customers.Customer;
+import vending_machine.handlers.InsertMoneyHandler;
+import vending_machine.handlers.PressButtonHandler;
+import vending_machine.handlers.PrintHandler;
+import vending_machine.inf.Sellable;
 import vending_machine.util.FileUtil;
 import vending_machine.util.NIOFileUtil;
 
@@ -101,7 +106,7 @@ public class VendingMachine<I> implements Sellable<I> {
 	}
 
 
-	protected void refund(Customer customer, int refundMoney) {
+	public void refund(Customer customer, int refundMoney) {
 	// 환불을 안해주기 때문에 비워둠	
 	}
 

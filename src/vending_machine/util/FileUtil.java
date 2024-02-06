@@ -9,7 +9,8 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
-import vending_machine.Product;
+
+import vending_machine.vo.Product;
 
 public class FileUtil {
 	
